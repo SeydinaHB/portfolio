@@ -1,0 +1,24 @@
+<section id="projects" class="py-24 px-6">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-white mb-12">Mes <span class="text-emerald-400">projets</span></h2>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      @for (p of projects; track p.title) {
+        <article class="flex flex-col rounded-xl bg-slate-800 border border-slate-700 p-6 hover:border-emerald-400/60 transition">
+          <h3 class="text-xl font-semibold text-white mb-3">{{ p.title }}</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">{{ p.description }}</p>
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            @for (t of p.tags; track t) {
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-emerald-300 text-xs">{{ t }}</span>
+            }
+          </div>
+
+          @if (p.link) {
+            <a [href]="p.link" target="_blank" rel="noopener" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition">Voir le code sur GitHub</a>
+          }
+        </article>
+      }
+    </div>
+  </div>
+</section>
