@@ -6,7 +6,7 @@
       @for (p of projects; track p.title) {
         <article class="flex flex-col rounded-xl bg-slate-800 border border-slate-700 p-6 hover:border-emerald-400/60 transition">
           <h3 class="text-xl font-semibold text-white mb-3">{{ p.title }}</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-5 flex-1">{{ p.description }}</p>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">{{ p.description }}</p>
 
           <div class="flex flex-wrap gap-2 mb-5">
             @for (t of p.tags; track t) {
@@ -14,9 +14,31 @@
             }
           </div>
 
-          @if (p.link) {
-            <a [href]="p.link" target="_blank" rel="noopener" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition">Voir le code sur GitHub</a>
+          @if (p.accounts) {
+            <div class="rounded-lg bg-slate-900 border border-slate-700 p-4 mb-5 text-xs">
+              <p class="text-slate-300 font-medium mb-2">Comptes de démonstration</p>
+              <ul class="space-y-2">
+                @for (a of p.accounts; track a.email) {
+                  <li class="text-slate-400 break-all">
+                    <span class="text-emerald-400">{{ a.role }}</span> : {{ a.email }} / {{ a.password }}
+                  </li>
+                }
+              </ul>
+            </div>
           }
+
+          @if (p.note) {
+            <p class="text-slate-500 text-xs mb-5">{{ p.note }}</p>
+          }
+
+          <div class="flex flex-wrap items-center gap-4 mt-auto">
+            @if (p.demo) {
+              <a [href]="p.demo" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-900 text-sm font-semibold hover:bg-emerald-400 transition">Voir la démo</a>
+            }
+            @if (p.link) {
+              <a [href]="p.link" target="_blank" rel="noopener" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 transition">Voir le code sur GitHub</a>
+            }
+          </div>
         </article>
       }
     </div>

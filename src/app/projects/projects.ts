@@ -1,5 +1,15 @@
 import { Component } from '@angular/core';
 
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  demo?: string;
+  note?: string;
+  accounts?: { role: string; email: string; password: string }[];
+}
+
 @Component({
   selector: 'app-projects',
   imports: [],
@@ -7,12 +17,19 @@ import { Component } from '@angular/core';
   styleUrl: './projects.css'
 })
 export class Projects {
-  projects = [
+  projects: Project[] = [
     {
       title: 'MicroBank Connect',
       description: 'Application web de banque et de microfinance avec trois rôles (Client, Agent, Gestionnaire) : gestion des clients, des comptes et des transactions, simulation de crédit avec tableau d\'amortissement, workflows d\'approbation et notifications.',
       tags: ['Angular 20', 'TypeScript', 'Tailwind CSS', 'json-server'],
-      link: 'https://github.com/SeydinaHB/microbank-connect'
+      link: 'https://github.com/SeydinaHB/microbank-connect',
+      demo: 'https://microbank-connect-pdzr.vercel.app',
+      note: 'Le premier chargement peut prendre environ une minute (serveur de démonstration gratuit). Toutes les données sont fictives.',
+      accounts: [
+        { role: 'Gestionnaire', email: 'awa.diop@microbank.sn', password: 'password123' },
+        { role: 'Agent', email: 'moussa.ndiaye@microbank.sn', password: 'password123' },
+        { role: 'Client', email: 'fatou.fall@client.sn', password: 'password123' }
+      ]
     },
     {
       title: 'Gestion de tâches sécurisée',
