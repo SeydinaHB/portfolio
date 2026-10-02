@@ -31,6 +31,13 @@ export class Projects {
         { role: 'Client', email: 'fatou.fall@client.sn', password: 'password123' }
       ]
     },
+        {
+      title: 'Baba Shop',
+      description: 'Site vitrine d\'une boutique de vêtements et de chaussures : catalogue par catégories (ensembles 3 pièces, ensembles 2 pièces, tee-shirts, chaussures), prix affichés et bouton Commander qui ouvre WhatsApp avec un message prérempli pour le produit choisi.',
+      tags: ['HTML', 'CSS', 'JAVASCRIPT'],
+      link: 'https://github.com/SeydinaHB/baba-shop',
+      demo: 'https://baba-shop-site.vercel.app'
+    },
     {
       title: 'Gestion de tâches sécurisée',
       description: 'Application full-stack de gestion de tâches avec authentification centralisée via Keycloak, API Node.js/Express et base PostgreSQL, le tout orchestré avec Docker Compose.',
